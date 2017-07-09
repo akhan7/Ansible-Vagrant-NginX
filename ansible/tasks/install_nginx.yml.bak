@@ -1,4 +1,4 @@
-# ./ansible-nginx/tasks/install_nginx.yml
+
  
 - name: NGINX | Adding NGINX signing key
   apt_key: 
@@ -19,7 +19,7 @@
   apt:
     pkg: nginx
     state: latest
- 
+
 - name: NGINX | Starting NGINX
   service:
     name: nginx

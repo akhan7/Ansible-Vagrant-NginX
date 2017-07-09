@@ -17,6 +17,15 @@
   apt:
     pkg: nginx
     state: latest
+
+- name: Copying the "Hello World" HTML page to the relevant NGINX directory for the start page
+  sudo: yes
+  copy:
+    src: /home/ahmad/Desktop/DO/html/index.html
+    dest: /usr/share/nginx/html
+    owner: vagrant
+    group: vagrant
+    mode: 0777
  
 - name: NGINX | Starting NGINX
   service:
