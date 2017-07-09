@@ -1,0 +1,8 @@
+# /home/ahmad/Desktop/DevOps_Project/ansible-nginx/deploy.yml
+
+- name: Starting the task on host nginx	 
+  hosts: nginx
+  sudo: yes
+  tasks:
+    - include: 'tasks/install_nginx.yml'
+
