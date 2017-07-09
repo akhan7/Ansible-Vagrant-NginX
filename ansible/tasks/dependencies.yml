@@ -1,1 +1,18 @@
-#- name: Install packages
+- name: Copying script to mkdir
+  sudo: yes
+  copy:
+    src: /home/ahmad/Desktop/DO/scripts/create_ssl.sh
+    dest: /home
+    owner: vagrant
+    group: vagrant
+    mode: 0777
+
+- name: Executing script
+  sudo: yes
+  shell: /home/create_ssl.sh
+         
+
+- name: Installing pexpect
+  pip:
+    name: pexpect
+    state: latest

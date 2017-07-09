@@ -39,30 +39,19 @@
     port: ssh
     proto: tcp
  
-- name: Copying script to mkdir
-  sudo: yes
-  copy:
-    src: /home/ahmad/Desktop/DO/scripts/create_ssl.sh
-    dest: /home
-    owner: vagrant
-    group: vagrant
-    mode: 0777
 
-- name: Executing script
-  sudo: yes
-  shell: /home/create_ssl.sh
-         
 
-- expect:
+- name: Installing certificate
+  expect:
     command: openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
     responses:
-      Country Name \(2 letter code\) \[AU\]: "US"
-      State or Province Name \(full name\) \[Some-State\]: "New Jersey"
-      Locality Name \(eg, city\) \[\]: "Clementon"
-      Organization Name \(eg, company\) \[Internet Widgits Pty Ltd\]: "NCSU"
-      Organizational Unit Name \(eg, section\) \[\]: "DevOps"
-      Common Name \(e.g. server FQDN or YOUR name\) \[\]: "192.168.33.10"
-      Email Address \[\]: "akhan7@ncsu.edu"
+      "Country Name (2 letter code) [AU]": "US"
+      "State or Province Name (full name) [Some-State]": "New Jersey"
+      "Locality Name (eg, city) []": "Clementon"
+      "Organization Name (eg, company) [Internet Widgits Pty Ltd]": "NCSU"
+      "Organizational Unit Name (eg, section) []": "DevOps"
+      "Common Name (e.g. server FQDN or YOUR name) []": "192.168.33.10"
+      "Email Address []": "akhan7@ncsu.edu"
           
 
 
