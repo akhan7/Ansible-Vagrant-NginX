@@ -18,7 +18,7 @@
     pkg: nginx
     state: latest
 
-- name: Copying the "Hello World" HTML page to the relevant NGINX directory for the start page
+- name: Copying HTML page to NGINX directory
   sudo: yes
   copy:
     src: /home/ahmad/Desktop/DO/html/index.html
@@ -26,7 +26,24 @@
     owner: vagrant
     group: vagrant
     mode: 0777
- 
+
+- name: Securing ports 80 and 443 (HTTP HTTPS)
+  ufw:
+    rule: allow
+    port: http
+    proto: tcp
+  ufw:
+    rule: allow
+    port: https
+    proto: tcp
+  ufw:
+    rule: allow
+    port: ssh
+    proto: tcp
+  
+
+
+
 - name: NGINX | Starting NGINX
   service:
     name: nginx
