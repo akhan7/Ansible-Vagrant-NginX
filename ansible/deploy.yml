@@ -4,5 +4,6 @@
   hosts: nginx
   sudo: yes
   tasks:
+    - include: 'tasks/dependencies.yml'
     - include: 'tasks/install_nginx.yml'
 
