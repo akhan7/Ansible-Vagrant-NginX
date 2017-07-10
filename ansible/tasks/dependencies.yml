@@ -1,7 +1,7 @@
 - name: Copying script to mkdir
   sudo: yes
   copy:
-    src: /home/ahmad/Desktop/DO/scripts/create_ssl.sh
+    src: /home/ahmad/Desktop/DO/scripts
     dest: /home
     owner: vagrant
     group: vagrant
@@ -9,7 +9,7 @@
 
 - name: Executing script
   sudo: yes
-  shell: /home/create_ssl.sh
+  shell: /home/scripts/create_ssl.sh
          
 
 - name: Installing pexpect
