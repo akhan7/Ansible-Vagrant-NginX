@@ -48,12 +48,23 @@
     port: 22
     proto: tcp
  
-- name: Executing script
+- name: Creating certificate 1
   sudo: yes
-  shell: >
-         chmod +x /home/scripts/create_certificate.sh
-         /home/scripts/create_certificate.sh
+  copy:
+    src: /home/ahmad/Desktop/DO/scripts/nginx.key
+    dest: /etc/nginx/ssl/nginx.key
+    owner: vagrant
+    group: vagrant
+    mode: 0400
 
+- name: Creating certificate 2
+  sudo: yes
+  copy:
+    src: /home/ahmad/Desktop/DO/scripts/nginx.crt
+    dest: /etc/nginx/ssl/nginx.crt
+    owner: vagrant
+    group: vagrant
+    mode: 0700
  
 - name: NGINX | Starting NGINX
   service:
