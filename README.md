@@ -32,14 +32,9 @@ Connection with the machine established.
 
 ## Vagrantfile
 
-The Vagrantfile will contain some settings to adjust for memory, networking, etc.
+The Vagrantfile will contain some settings to adjust for memory, networking, etc. The Vagrantfile for this project can be found [here](https://github.com/akhan7/Ansible-Vagrant-NginX/blob/master/boxes/ansible/Vagrantfile)
 
 ```ruby
-  # Important, you must run vagrant in an admin shell if you want symlinks to work correctly.
-  # i.e., for npm install to work properly, you must have vagrant provision the machine in admin cmd prompt.
-  config.vm.synced_folder "C:/dev", "/vol/dev"
-  config.vm.synced_folder "C:/projects", "/vol/projects"
-
   config.vm.provider :virtualbox do |vb|
      # fix crappy dns
      # https://serverfault.com/questions/453185/vagrant-virtualbox-dns-10-0-2-3-not-working
@@ -54,26 +49,26 @@ In virtualbox, VMs typically have [four ways](http://catlingmindswipe.blogspot.c
 - Internal network
 - Host Only (Recommended).
 
-Unlike the first virtual machine, you cannot use the default mode, because there will be no way for the ansible VM to talk to the node VM. Instead, you much choose between bridged or host-only.
+Unlike the first virtual machine, we cannot use the default mode, because there will be no way for the ansible VM to talk to the node VM. Instead, choose between bridged or host-only.
 Private networking (Host-only) is the recommended setting for Linux/Mac/Windows 10. 
 
-Uncomment the following line in Vagrantfile:
+Uncommented the following line in Vagrantfile:
 
 ```ruby
 config.vm.network "private_network", ip: "192.168.33.10"
 ```
 
-Then run, `vagrant reload`. 
+Then ran, `vagrant reload`. 
 
 # Ansible
 Ansible is a tool for configuring and coordinating software on multiple machines.
-In general, Ansible (like Salt, Chef, and Puppet), use a central server that controls other nodes.  Unlike the other tools, Ansible does not require a client service to run on the nodes.
+In general, Ansible (like Salt, Chef, and Puppet), use a central server that controls other nodes.  Unlike the other tools, Ansible does not require a client service to run on the nodes. It's a "push" type CM tool rather than a "pull" type.
 
 ![image](https://cloud.githubusercontent.com/assets/742934/22233647/b26951a4-e1bf-11e6-9bff-0a168a8dc66b.png)
 
 ## Setting up Ansible
 
-Follow these steps to install Ansible on your configuration server.
+Followed these steps to install Ansible on your configuration server.
 
 ```bash
 ansible-box> $ sudo apt-add-repository ppa:ansible/ansible
