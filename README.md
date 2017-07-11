@@ -108,5 +108,8 @@ Now, run the ping test again to make sure you can actually talk to the node!
     ansible all -m ping -i inventory -vvvv
 
 ## Ansible Playbook
+Playbooks are Ansible’s configuration, deployment, and orchestration language. They can describe a policy you want your remote systems to enforce, or a set of steps in a general IT process.
 
+Playbooks are designed to be human-readable and are developed in a basic text language. There are multiple ways to organize playbooks and the files they include.
 
+All the configuration management, automation and testing is done through these Playbooks. In this project we initially started with the [deploy.yml](https://github.com/akhan7/Ansible-Vagrant-NginX/blob/master/ansible/deploy.yml) Playbook which has 3 different "tasks" or references 3 different Playbooks, all dedicated to different tasks. The first is the [dependencies.yml](https://github.com/akhan7/Ansible-Vagrant-NginX/blob/master/ansible/tasks/dependencies.yml) Playbook
