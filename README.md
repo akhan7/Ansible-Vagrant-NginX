@@ -80,20 +80,20 @@ ansible-box> $ sudo apt-get install ansible
 
 An inventory file allows ansible to define, group, and coordinate configuration management of multiple machines. At the most basic level, it basically lists the names of an asset and details about how to connect to it.
 
-Create a `inventory` file that contains something like the following.  **Note use your ip address and private_key**:
+Created a `inventory` file that contains something like the following:
 
 ```ini    
 [nodes]
 192.168.33.100 ansible_ssh_user=vagrant ansible_ssh_private_key_file=./keys/node0.key
 ```
 
+Inventory file can be found [here](https://github.com/akhan7/Ansible-Vagrant-NginX/blob/master/ansible/inventory).
+
 #### Setting up ssh keys
 
-You need a way to automatically connect to your server without having to manually authenicate each connection. Using a public/private key for ssh, you can ssh into your node VM from the Ansible Server automatically.
+To automatically connect to our server without having to manually authenicate each connection, use a public/private key for ssh, ssh into our node VM from the Ansible Server automatically.
 
-Note, you actually don't have a keys directory yet.
-
-On the host machine, `cd /boxes/node0`. Then run `vagrant ssh-config` to get path of the private_key of node0, open it up and copy contents into textfile. In mac os, you can run `pbcopy < path/private_key` to copy contents into clipboard.
+On the host machine, `cd /boxes/node0`. Then ran `vagrant ssh-config` to get path of the private_key of node0, opened it up and copied contents into textfile. In mac os, you can run `pbcopy < path/private_key` to copy contents into clipboard.
 
 Inside the configuration server, create a `keys/node0.key` file that contains the private_key you previously copied.  You may need to `chmod 500 keys/node0.key`.
 
