@@ -6,4 +6,5 @@
   tasks:
     - include: 'tasks/dependencies.yml'
     - include: 'tasks/install_nginx.yml'
+    - include: 'tasks/test.yml'
 

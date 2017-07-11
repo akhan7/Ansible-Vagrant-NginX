@@ -1,0 +1,2 @@
+- name: Running Selenium test
+  shell: python /home/ahmad/Desktop/DO/scripts/Selenium.py
