@@ -93,15 +93,13 @@ Inventory file can be found [here](https://github.com/akhan7/Ansible-Vagrant-Ngi
 
 To automatically connect to our server without having to manually authenicate each connection, use a public/private key for ssh, ssh into our node VM from the Ansible Server automatically.
 
-On the host machine, `cd /boxes/node0`. Then ran `vagrant ssh-config` to get path of the private_key of node0, opened it up and copied contents into textfile. In mac os, you can run `pbcopy < path/private_key` to copy contents into clipboard.
+On the host machine, `cd /boxes/node0`. Then ran `vagrant ssh-config` to get path of the private_key of node0, opened it up and copied contents into textfile.
 
-Inside the configuration server, create a `keys/node0.key` file that contains the private_key you previously copied.  You may need to `chmod 500 keys/node0.key`.
+Inside the configuration server, created a `keys/node0.key` file that contained the private_key previously copied. Set the correct permissions by `chmod 500 keys/node0.key`.
 
-Test your connection between ansible and node0:
+Tested the connection between ansible and node0:
 
     ssh -i keys/node0.key vagrant@192.168.1.100
-
-If you see an error or prompt for a password, you have a problem with your key setup.
 
 ## Ansible in action
 
