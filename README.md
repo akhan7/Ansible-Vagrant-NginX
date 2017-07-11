@@ -7,20 +7,20 @@ The goal of this project is to demonstrate how to use some tools to aid with the
 
 ## Creating Virtual Machine
 
-* Install [vagrant](https://www.vagrantup.com/downloads.html).
-* Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) is a recommended provider.
+* Installed [vagrant](https://www.vagrantup.com/downloads.html).
+* Installed [VirtualBox](https://www.virtualbox.org/wiki/Downloads).
   Other [virtual machine providers](https://docs.vagrantup.com/v2/providers/) do exist.
 
-When you create a VM with vagrant, it will create a Vagrantfile in your current directory as well as a hidden directory (.vagrant).
-Vagrant only allows one virtual machine configuration per directory. You will want to organize your VMs:
+When creating a VM with vagrant, it will create a Vagrantfile in the current directory as well as a hidden directory (.vagrant).
+Vagrant only allows one virtual machine configuration per directory, so to organize your VMs:
 
 * `mkdir -p /boxes/ansible`; `cd /boxes/ansible`
 
-Initialize a virtual machine. `ubuntu/trusty64` is one default image. A list of other virtual machine images can be found [here](https://atlas.hashicorp.com/boxes/search).
+Initialized a virtual machine. `ubuntu/trusty64` is one default image. A list of other virtual machine images can be found [here](https://atlas.hashicorp.com/boxes/search).
 
     vagrant init ubuntu/trusty64
 
-Start up the virtual machine.
+Started up the virtual machine.
 
     vagrant up
 
@@ -28,15 +28,11 @@ Then
 
     vagrant ssh
 
-You should be able to connect to the machine.
+Connection with the machine established.
 
 ## Vagrantfile
 
-The Vagrantfile will contain some settings you can adjust for memory, networking, etc.
-Two customizations you may consider making if working with your VM long-term:
-
-* 1) Enable a synced folder. This will allow you to edit code/files from editors in your host OS.
-* 2) Fix DNS to use the same as your host OS instead of its own.
+The Vagrantfile will contain some settings to adjust for memory, networking, etc.
 
 ```ruby
   # Important, you must run vagrant in an admin shell if you want symlinks to work correctly.
